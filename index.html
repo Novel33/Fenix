@@ -1,0 +1,173 @@
+ <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> </meta>
+  
+    <title>Lizzard Clicker</title>
+    <link rel="stylesheet" href="styles.css" /> </link>
+   
+
+
+    
+    
+
+    <title>Запрет выделения текста</title>
+    <style>
+        /* Запрет выделения текста */
+        body {
+            -webkit-user-select: none; /* Safari */
+            -moz-user-select: none;    /* Firefox */
+            -ms-user-select: none;     /* Internet Explorer/Edge */
+            user-select: none;         /* Non-prefixed version, currently
+                                           supported by Chrome, Opera, and Edge */
+        }
+    </style>
+
+
+
+  
+ 
+    <div class="game">
+      <div class="header">
+        <img src="./assets/coin.png" alt="coin" />
+        <h2 class="score" id="score"></h2>
+      </div>
+      <div class="circle">
+        <img id="circle" src="./assets/frog.png" alt="frog" />
+
+        <title>Прозрачные ячейки</title>
+        <style>
+      
+            .container {
+                display: flex;
+                justify-content: center;
+                gap: 20px; /* Промежуток между ячейками */
+                margin-top: 30%; /* Позиционирование контейнера ниже центра */
+                flex: 100;
+                bottom: 0.1em; %;
+                
+            }
+            
+            .cell {
+              
+                padding: 10px;
+                margin:  8px; /* Промежуток между ячейками */
+                border-radius: 100px;
+                
+                text-align: center;
+                padding: 1;
+            }
+    
+            a {
+                text-decoration: none; /* Убираем подчеркивание */
+                color: #333; /* Цвет текста */
+                font-size: 35px; /* Размер шрифта */
+            }
+    
+      
+           
+            
+        </style>
+        
+    </head>
+    <body>
+        <div class="container">
+            <div class="cell"><a href="#link1">🚀</a></div>
+            <div class="cell"><a href="#link2">👥</a></div>
+            <div class="cell"><a href="#link3">🏆</a></div>
+        </div>
+      </div>
+    </div>
+    <script src="app.js" defer></script>
+  </body>
+</html>
+
+
+<title>Уменьшающаяся Полоска</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+           
+        }
+        #progress-container {
+            width: 330px;
+            height: 30px;
+            position: relative;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        #progress-bar {
+            height: 50%;
+            background-color: #f4f80b;
+            width: 100%;
+            border-radius: 50px;
+            transition: width 0.2s;
+        }
+        #message {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div id="progress-container">
+        <div id="progress-bar"></div>
+    </div>
+    <div id="message">500</div>
+
+    <script>
+        let currentValue = 500;
+        let interval;
+        const messageElement = document.getElementById('message');
+        const progressBar = document.getElementById('progress-bar');
+        
+        // Обработчик события нажатия
+        document.addEventListener('click', () => {
+            if (currentValue > 0) {
+                currentValue -= 1; // Уменьшаем значение на 1
+                if (currentValue < 0) {
+                    currentValue = 0;
+                }
+                updateProgressBar();
+            }
+        });
+
+        // Функция обновления полоски
+        function updateProgressBar() {
+            messageElement.textContent = currentValue;
+            progressBar.style.width = (currentValue / 500 * 100) + '%';
+
+            // Проверяем, достигли ли мы 0
+            if (currentValue === 0) {
+    
+            } else {
+                // Обновляем отсчет на восстановление через 1 секунду
+                clearInterval(interval);
+                interval = setInterval(() => {
+                    if (currentValue < 500) {
+                        currentValue += 1; // Восстанавливаем значение на 10
+                        if (currentValue > 500) {
+                            currentValue = 500;
+                        }
+                        updateProgressBar();
+                    } else {
+                        clearInterval(interval); // Остановить восстановление если достигли 500
+                    }
+                }, 2000);
+            }
+        }
+    </script>
+
+
+   
+
+
+
+
+
+
+</body>
+</html>
