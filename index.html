@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> </meta>
+    
+
+    <title>Прозрачные ячейки</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Выравнивание по верхней стороне */
+            height: 100vh;
+            margin: 0;
+            background-color: #030e20;
+        }
+        
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30%; /* Позиционирование контейнера ниже центра */
+        }
+        
+        .cell {
+            background-color: #030e20; /* Полупрозрачный белый фон */
+            padding: 20px;
+            margin: 0 10px; /* Промежуток между ячейками */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px #030e20;
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none; /* Убираем подчеркивание */
+            color: #f4f2f2; /* Цвет текста */
+            font-size: 40px; /* Размер шрифта */
+        }
+
+        a:hover {
+            color: #007bff; /* Цвет текста при наведении */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="cell"><a href="#link1">🚀</a></div>
+        <div class="cell"><a href="#link2">👥</a></div>
+        <div class="cell"><a href="#link3">🏆</a></div>
+    </div>
+
+
+
+
+    <title>Lizzard Clicker</title>
+    <link rel="stylesheet" href="styles.css" />
+
+
+
+
+    <title>Запрет выделения текста</title>
+    <style>
+        /* Запрет выделения текста */
+        body {
+            -webkit-user-select: none; /* Safari */
+            -moz-user-select: none;    /* Firefox */
+            -ms-user-select: none;     /* Internet Explorer/Edge */
+            user-select: none;         /* Non-prefixed version, currently
+                                           supported by Chrome, Opera, and Edge */
+        }
+    </style>
+  </head>
+  <body>
+    <div class="game">
+      <div class="header">
+        <img src="./assets/coin.png" alt="coin" />
+        <h2 class="score" id="score">5</h2>
+      </div>
+      <div class="circle">
+        <img id="circle" src="./assets/frog.png" alt="frog" />
+      </div>
+    </div>
+    <script src="app.js" defer></script>
+
+
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Полоса активности</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+          
+        }
+        #progress-bar {
+            width: 70%;
+            display: flex;
+            justify-content: center;
+            height: 10px;
+            margin: 0;
+            background-color: rgb(249, 197, 9);
+            position: absolute;
+            bottom: 8%;
+            transition: width 0.6s;
+        }
+    </style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<script>
+    let progressBar = document.getElementById("progress-bar");
+    let progressWidth = 100; // Начальноe значение ширины в процентах
+    let interval;
+    
+
+    // Функция для уменьшения ширины полосы
+    function decreaseProgress() {
+        progressWidth -= 0.4;
+        if (progressWidth < 0) progressWidth = 0;
+        progressBar.style.width = progressWidth + '%';
+    }
+
+    // Функция для увеличения ширины полосы
+    function increaseProgress() {
+        progressWidth += 0.08;
+        if (progressWidth > 75) progressWidth = 75;
+        progressBar.style.width = progressWidth + '%';
+    }
+
+    // Увеличивать ширину полосы каждые 1000 мс, если нет нажатий
+    interval = setInterval(increaseProgress, 100);
+
+    // При нажатии на экран, уменьшить ширину полосы и сбросить таймер
+    document.body.addEventListener('click', () => {
+        decreaseProgress();
+        progressWidth = Math.max(progressWidth, 0,01); // Обеспечить non-negative value
+        clearInterval(interval); // Остановить увеличение
+        // Запустить увеличение снова через 1 секунду бездействия
+        setTimeout(() => {
+            interval = setInterval(increaseProgress, 100);
+        }, 100);
+    });
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
