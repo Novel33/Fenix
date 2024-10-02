@@ -1,0 +1,164 @@
+ <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> </meta>
+  
+    <title>Lizzard Clicker</title>
+    <link rel="stylesheet" href="styles.css" /> </link>
+   
+
+
+    
+    
+
+    <title>Запрет выделения текста</title>
+    <style>
+        /* Запрет выделения текста */
+        body {
+            -webkit-user-select: none; /* Safari */
+            -moz-user-select: none;    /* Firefox */
+            -ms-user-select: none;     /* Internet Explorer/Edge */
+            user-select: none;         /* Non-prefixed version, currently
+                                           supported by Chrome, Opera, and Edge */
+        }
+    </style>
+
+
+
+  
+ 
+    <div class="game">
+      <div class="header">
+        <img src="./assets/coin.png" alt="coin" />
+        <h2 class="score" id="score"></h2>
+      </div>
+      <div class="circle">
+        <img id="circle" src="./assets/frog.png" alt="frog" />
+
+        <title>Прозрачные ячейки</title>
+        <style>
+      
+            .container {
+                display: flex;
+                margin: 20px;
+                justify-content: flex-end;
+                align-items: conteiner;
+                gap: 10px; /* Промежуток между ячейками */
+                margin-top: 80%; /* Позиционирование контейнера ниже центра */
+                flex: 1;
+            }
+            
+            .cell {
+              
+                padding: 15px;
+                margin:  10px; /* Промежуток между ячейками */
+                border-radius: 100px;
+                box-shadow:  4px 8px rgba(0, 0, 0, 0.2);
+                text-align: center;
+            }
+    
+            a {
+                text-decoration: none; /* Убираем подчеркивание */
+                color: #333; /* Цвет текста */
+                font-size: 30px; /* Размер шрифта */
+            }
+    
+            a:hover {
+           
+            }
+        </style>
+        
+    </head>
+    <body>
+        <div class="container">
+            <div class="cell"><a href="#link1">🚀</a></div>
+            <div class="cell"><a href="#link2">👥</a></div>
+            <div class="cell"><a href="#link3">🏆</a></div>
+        </div>
+      </div>
+    </div>
+    <script src="app.js" defer></script>
+  </body>
+</html>
+
+
+
+
+
+    <title>Полоса активности</title>
+    <style>
+      
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+          
+            
+        }
+        #progress-bar {
+            width: 70%;
+            display: flex;
+            justify-content: center;
+            height: 10px;
+            margin: 10;
+            background-color: rgb(249, 197, 9);
+            border-radius: 1000px;
+            position: absolute;
+            bottom: 8%;
+            transition: width 0.6s;
+        }
+        
+    </style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<script>
+    let progressBar = document.getElementById("progress-bar");
+    let progressWidth = 100; // Начальноe значение ширины в процентах
+    let interval;
+    
+
+    // Функция для уменьшения ширины полосы
+    function decreaseProgress() {
+        progressWidth -= 0.4;
+        if (progressWidth < 0) progressWidth = 0;
+        progressBar.style.width = progressWidth + '%';
+    }
+
+    // Функция для увеличения ширины полосы
+    function increaseProgress() {
+        progressWidth += 0.08;
+        if (progressWidth > 75) progressWidth = 75;
+        progressBar.style.width = progressWidth + '%';
+    }
+
+    // Увеличивать ширину полосы каждые 1000 мс, если нет нажатий
+    interval = setInterval(increaseProgress, 100);
+
+    // При нажатии на экран, уменьшить ширину полосы и сбросить таймер
+    document.body.addEventListener('click', () => {
+        decreaseProgress();
+        progressWidth = Math.max(progressWidth, 0,01); // Обеспечить non-negative value
+        clearInterval(interval); // Остановить увеличение
+        // Запустить увеличение снова через 1 секунду бездействия
+        setTimeout(() => {
+            interval = setInterval(increaseProgress, 100);
+        }, 100);
+    });
+</script>
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
